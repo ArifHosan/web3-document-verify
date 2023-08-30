@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Sepolia } from "@thirdweb-dev/chains";
 import Header from './layout/Header';
+import Container from './content/Container';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -21,15 +24,15 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
-      <div>
-        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <main>
-          {/* Your main content goes here */}
-        </main>
-      </div>
-    </ThemeProvider>
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+        <CssBaseline />
+        <div>
+          <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <main>
+            <Container />
+          </main>
+        </div>
+      </ThemeProvider>
   );
 }
 
