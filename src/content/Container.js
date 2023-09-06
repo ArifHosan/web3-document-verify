@@ -6,7 +6,6 @@ import EthereumService from '../services/etherService';
 import { Snackbar, Alert } from "@mui/material";
 
 const Container = ({ web3 }) => {
-    const [selectedFile, setSelectedFile] = useState(null);
     const [inputValue, setInputValue] = useState('');
     const [hash, setHash] = useState('');
     const [contract, setContract] = useState(null);

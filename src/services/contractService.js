@@ -1,9 +1,7 @@
 
-import { ethers } from 'ethers';
 import ABI from '../contracts/DocumentVerification.json';
 import EthereumService from './etherService';
 
-const NETWORK_ID = 11155111;
 const contractAddress = "0x071Ac9573257D5007d15C7a41DC83Fd92c0fdBE5";
 
 const ContractService = {
