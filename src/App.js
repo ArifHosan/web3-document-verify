@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { Sepolia } from "@thirdweb-dev/chains";
 import Header from './layout/Header';
 import Container from './content/Container';
+import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
+  const web3 = createAlchemyWeb3(alchemyKey); 
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -27,9 +28,9 @@ function App() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         <div>
-          <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} web3={web3}/>
           <main>
-            <Container />
+            <Container web3={web3} />
           </main>
         </div>
       </ThemeProvider>

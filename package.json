@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@alch/alchemy-web3": "^1.4.7",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
@@ -15,8 +16,10 @@
     "@thirdweb-dev/react": "^3.14.39",
     "@thirdweb-dev/sdk": "^3.10.58",
     "@web3-react/core": "^8.2.2",
+    "@web3-react/metamask": "^8.2.3",
     "alchemy-sdk": "^2.10.0",
     "axios": "^1.5.0",
+    "bootstrap": "^5.3.1",
     "ethers": "^5.7.2",
     "install": "^0.13.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
