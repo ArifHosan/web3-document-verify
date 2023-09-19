@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import ContractService from '../services/contractService';
 import EthereumService from '../services/etherService';
 import { Snackbar, Alert } from "@mui/material";
+import { FileUploader } from "react-drag-drop-files";
 
 const Container = ({ web3 }) => {
     const [inputValue, setInputValue] = useState('');
@@ -131,13 +132,22 @@ const Container = ({ web3 }) => {
             setSnack({ status: "error", message: err.message?.split(":")[2].trim() })
         })        
     }
-
+    const [file, setFile] = useState(null);
+    const handleChange = (file) => {
+      setFile(file);
+    };
+    const fileTypes = ["JPG", "PNG", "GIF"];
 
 
 
     return (
         <>
-            <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
+            <div className='row'>
+                <div className='col-6'>
+                    <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+                </div>
+            </div>
+            {/* <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
                 <Alert onClose={handleSnackbarClose} severity={snack.status} sx={{ width: '100%' }}>
                     {snack.message}
                 </Alert>
@@ -156,7 +166,7 @@ const Container = ({ web3 }) => {
                 <Grid item xs={12}>
                     <h3>{snack.message}</h3>
                 </Grid>
-            </Grid>
+            </Grid> */}
         </>
 
 

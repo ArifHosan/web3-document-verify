@@ -46,7 +46,7 @@ const Header = ({ darkMode, toggleDarkMode, web3 }) => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography variant="h6">My App Header</Typography>
+                <Typography variant="h6">Document Verification using BlockChain</Typography>
                 <div style={{ marginLeft: 'auto' }} className='d-flex'>
                     <div>
                         <IconButton onClick={toggleDarkMode} color="inherit">
