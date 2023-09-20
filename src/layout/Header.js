@@ -7,11 +7,14 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Button from '@mui/material/Button';
 import EthereumService from '../services/etherService';
+import { useAccountStore } from '../store';
 
 const Header = ({ darkMode, toggleDarkMode, web3 }) => {
     const [account, setAccount] = React.useState(null);
     const [balance, setBalance] = React.useState(null);
 
+    const setAccountState = useAccountStore((state) => state.setAccount);
+    const setHasWalletState = useAccountStore((state) => state.setHasWallet);
 
     const getBalance = (_account) => {
         EthereumService.getBalance(web3, _account).then((balance) => {
@@ -23,8 +26,12 @@ const Header = ({ darkMode, toggleDarkMode, web3 }) => {
         EthereumService.getPrimaryAccount(web3).then((_account) => {
             setAccount(_account)
             getBalance(_account)
+
+            setAccountState(_account)
+
         }).catch((error) => {
             console.log(error)
+            setAccountState(null)
         })
     })
 
@@ -32,6 +39,9 @@ const Header = ({ darkMode, toggleDarkMode, web3 }) => {
         EthereumService.authenticateMetamask(web3).then((account) => {
             setAccount(account)
             getBalance(account)
+
+            setAccountState(account)
+
         }).catch((error) => {
             console.log(error)
         })
