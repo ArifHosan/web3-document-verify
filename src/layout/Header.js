@@ -14,7 +14,6 @@ const Header = ({ darkMode, toggleDarkMode, web3 }) => {
     const [balance, setBalance] = React.useState(null);
 
     const setAccountState = useAccountStore((state) => state.setAccount);
-    const setHasWalletState = useAccountStore((state) => state.setHasWallet);
 
     const getBalance = (_account) => {
         EthereumService.getBalance(web3, _account).then((balance) => {

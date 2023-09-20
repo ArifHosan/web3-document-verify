@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import Dropzone from 'react-dropzone'
 import { BsPlusLg } from 'react-icons/bs';
 import ThemeService from '../services/themeService';
